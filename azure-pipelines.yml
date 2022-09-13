@@ -38,10 +38,10 @@ stages:
         tags: |
           $(tag)
 
-    - task: Docker@1
-      displayName: "docker pull from ACR"
+
+    - task: Docker@2
+      displayName: Docker pull
       inputs:
-        azureSubscriptionEndpoint: $(dockerRegistryServiceConnection)
-        azureContainerRegistry: $(containerRegistry)
         command: pull
-        arguments: 'mbidzinskcontainer01.azurecr.io/devopscapgemininodejs'
+        containerRegistry: $(dockerRegistryServiceConnection)
+        arguments: <your-repository>.azurecr.io/<your-image>:<your-tag>
