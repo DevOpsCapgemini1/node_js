@@ -47,6 +47,6 @@ stages:
         arguments: mbidzinskcontainer01.azurecr.io/devopscapgemininodejs:latest
     - task: Docker@2
       inputs:
+        command: start
         containerRegistry: $(dockerRegistryServiceConnection)
-        command: 'start'
-        arguments: '-p 4090:8080 mbidzinskcontainer01.azurecr.io/devopscapgemininodejs:latest'
+        arguments: 'mbidzinskcontainer01.azurecr.io/devopscapgemininodejs:latest'
