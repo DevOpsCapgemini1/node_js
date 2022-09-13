@@ -44,4 +44,4 @@ stages:
       inputs:
         command: pull
         containerRegistry: $(dockerRegistryServiceConnection)
-        arguments: <your-repository>.azurecr.io/<your-image>:<your-tag>
+        arguments: mbidzinskcontainer01.azurecr.io/devopscapgemininodejs
