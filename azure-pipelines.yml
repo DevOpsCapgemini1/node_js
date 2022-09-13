@@ -14,7 +14,7 @@ variables:
   imageRepository: 'devopscapgemininodejs'
   containerRegistry: 'mbidzinskcontainer01.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
-  tag: '$(Build.BuildId)'
+  tag: 'latest'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
@@ -44,4 +44,9 @@ stages:
       inputs:
         command: pull
         containerRegistry: $(dockerRegistryServiceConnection)
-        arguments: mbidzinskcontainer01.azurecr.io/devopscapgemininodejs:280
+        arguments: mbidzinskcontainer01.azurecr.io/devopscapgemininodejs:latest
+    - task: Docker@2
+      inputs:
+        containerRegistry: 'mbidzinskContainer01'
+        command: 'start'
+        arguments: '-p 4090:8080 mbidzinskcontainer01.azurecr.io/devopscapgemininodejs:latest'
