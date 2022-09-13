@@ -37,12 +37,11 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
-    - task: CmdLine@2
+
+    - task: Docker@1
+      displayName: "docker pull from ACR"
       inputs:
-        script: |
-          docker pull mbidzinskcontainer01.azurecr.io/devopscapgemininodejs
-          
-    - task: CmdLine@2
-      inputs:
-        script: |
-          docker run -it --rm -p 49160:8080 mbidzinskcontainer01.azurecr.io/devopscapgemininodejs
+        azureSubscriptionEndpoint: $(dockerRegistryServiceConnection)
+        azureContainerRegistry: $(containerRegistry)
+        command: pull
+        arguments: 'mbidzinskcontainer01.azurecr.io/devopscapgemininodejs'
