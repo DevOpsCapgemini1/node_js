@@ -44,4 +44,4 @@ stages:
       inputs:
         command: pull
         containerRegistry: $(dockerRegistryServiceConnection)
-        arguments: mbidzinskcontainer01.azurecr.io/devopscapgemininodejs
+        arguments: mbidzinskcontainer01.azurecr.io/devopscapgemininodejs:280
