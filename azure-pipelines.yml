@@ -49,4 +49,4 @@ stages:
         command: login
         containerRegistry: $(dockerRegistryServiceConnection)
     - script: |
-        docker run -p 4090:8080 mbidzinskcontainer01.azurecr.io/devopscapgemininodejs:latest 
+        docker run -p 49160:8080 -d mbidzinskcontainer01.azurecr.io/devopscapgemininodejs:latest 
